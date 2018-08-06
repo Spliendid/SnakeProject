@@ -14,7 +14,7 @@ public class ModuleEvent<T> : UnityEvent<T>
 public class EventTable
 {
     //存储ModuleEvent
-    public Dictionary<string, ModuleEvent> m_mapEvent;
+    public Dictionary<string, ModuleEvent> m_mapEvents;
 
     /// <summary>
     /// 获取Type所指的ModuleEvent，其实它是一个EventTable
@@ -23,25 +23,32 @@ public class EventTable
     /// <returns></returns>
     public ModuleEvent GetEvent(string type)
     {
-        if (m_mapEvent == null)
+        if (m_mapEvents == null)
         {
-            m_mapEvent = new Dictionary<string, ModuleEvent>();
+            m_mapEvents = new Dictionary<string, ModuleEvent>();
         }
 
-        if (!m_mapEvent.ContainsKey(type))
+        if (!m_mapEvents.ContainsKey(type))
         {
-            m_mapEvent.Add(type, new ModuleEvent());
+            m_mapEvents.Add(type, new ModuleEvent());
         }
-        else if (m_mapEvent[type]==null)
+        else if (m_mapEvents[type]==null)
         {
-            m_mapEvent[type] = new ModuleEvent();
+            m_mapEvents[type] = new ModuleEvent();
         }
-        return m_mapEvent[type];
+        return m_mapEvents[type];
     }
 
     public void Clear()
     {
+        if (m_mapEvents!=null)
+        {
 
+            foreach (var item in m_mapEvents)
+            {
+                item.Value.RemoveAllListeners();
+            }
+        }
     }
 	
 }

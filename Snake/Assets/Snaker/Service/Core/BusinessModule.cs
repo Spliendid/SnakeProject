@@ -9,7 +9,8 @@
 
 using System;
 using System.Collections.Generic;
-
+using YJWCL;
+using System.Reflection;
 namespace Assets.Snaker.Service.Core
 {
     public abstract class BusinessModule:Module
@@ -28,7 +29,6 @@ namespace Assets.Snaker.Service.Core
 
         public string Title;
 
-        //========================================
         public BusinessModule()
         {
 
@@ -38,7 +38,31 @@ namespace Assets.Snaker.Service.Core
         {
             m_name = name;
         }
+        //消息机制
+        //========================================
+        public virtual void HandleMessage(string message, object[] args)
+        {
+            this.Log("HandleMessage() message:{0} args{1}",message,args);
+            MethodInfo mi = this.GetType().GetMethod(message, BindingFlags.NonPublic | BindingFlags.Instance);
+            //找到这个方法时
+            if (mi != null)
+            {
+                mi.Invoke(this, args);
+            }
+            //找不到这个方法时用通用方法
+            else
+            {
+                OnModuleMessage(message,args);
+            }
+        }
 
+        protected virtuald void OnModuleMessage(string msg,object[] args)
+        {
+
+        }
+
+        //事件机制
+        //========================================
         private EventTable m_mtbEvent;
 
         internal void SetEventTable(EventTable table)
@@ -62,15 +86,24 @@ namespace Assets.Snaker.Service.Core
             return m_mtbEvent;
         }
 
-        private void Foo()
+        public virtual void Creat(object arge = null)
         {
-            BusinessModule module;
-            module.Event("登录").AddListener(OnLogin);
+            this.Log("Creat() arge={0}",arge);
         }
 
-        private void OnLogin(object target)
+        public override void Release()
         {
-
+            if (m_mtbEvent!=null)
+            {
+                m_mtbEvent.Clear();
+                m_mtbEvent = null;
+            }
         }
+
+        public virtual void Show()
+        {
+            this.Log("Show");
+        }
+
     }
 }
