@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Snaker.Service.Core.BusinessModule" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIAIIABAAAAAAEAAAAAAAAQAAgAEAEAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\BusinessModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snaker.Service.Core.Module" Collapsed="true">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\Module.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snaker.Service.Core.LuaModule" Collapsed="true">
+    <Position X="4" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\LuaModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snaker.Service.Core.ServiceModule&lt;T&gt;" Collapsed="true">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\ServiceModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModuleEvent" Collapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\EventTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModuleEvent&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\EventTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventTable" Collapsed="true">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCCAA=</HashCode>
+      <FileName>Assets\Snaker\Service\Core\EventTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
