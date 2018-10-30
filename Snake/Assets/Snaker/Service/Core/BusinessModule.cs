@@ -56,7 +56,7 @@ namespace Assets.Snaker.Service.Core
             }
         }
 
-        protected virtuald void OnModuleMessage(string msg,object[] args)
+        protected virtual void OnModuleMessage(string msg,object[] args)
         {
 
         }

@@ -17,7 +17,7 @@ public class EventTable
     public Dictionary<string, ModuleEvent> m_mapEvents;
 
     /// <summary>
-    /// 获取Type所指的ModuleEvent，其实它是一个EventTable
+    /// 获取Type所指的ModuleEvent，ModuleEvent
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
