@@ -2,7 +2,7 @@
  *  Name  : Author
  *  Title :******
  *  Function:*****
- *  Time    : 2017.10
+ *  Time    : 2018.8
  *  Version : 1.0
  *
  */
@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using YJWCL;
 using System.Reflection;
-namespace Assets.Snaker.Service.Core
+namespace Snaker.Service.Core
 {
     public abstract class BusinessModule:Module
     {

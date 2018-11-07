@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Assets.Snaker.Service.Core
+namespace Snaker.Service.Core
 {
    public abstract class Module
     {
