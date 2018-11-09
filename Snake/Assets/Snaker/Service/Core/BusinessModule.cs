@@ -40,14 +40,14 @@ namespace Snaker.Service.Core
         }
         //消息机制
         //========================================
-        public virtual void HandleMessage(string message, object[] args)
+        internal void HandleMessage(string message, object[] args)
         {
             this.Log("HandleMessage() message:{0} args{1}",message,args);
             MethodInfo mi = this.GetType().GetMethod(message, BindingFlags.NonPublic | BindingFlags.Instance);
             //找到这个方法时
             if (mi != null)
             {
-                mi.Invoke(this, args);
+                mi.Invoke(this,BindingFlags.NonPublic,null,args,null);
             }
             //找不到这个方法时用通用方法
             else
@@ -58,7 +58,7 @@ namespace Snaker.Service.Core
 
         protected virtual void OnModuleMessage(string msg,object[] args)
         {
-
+            this.Log("OnModuleMessage() msgs:{0} ",args[0]);
         }
 
         //事件机制

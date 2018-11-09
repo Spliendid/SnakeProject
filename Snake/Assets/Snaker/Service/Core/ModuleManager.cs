@@ -50,7 +50,7 @@ namespace Snaker.Service.Core
             return (T)CreateModule(typeof(T).Name,args);
         }
 
-        public BusinessModule CreateModule(string name,object args = null)
+        public BusinessModule CreateModule(string name, object args = null)
         {
             if (m_mapModule.ContainsKey(name))
             {
@@ -140,7 +140,85 @@ namespace Snaker.Service.Core
 
         public BusinessModule GetModule(string name)
         {
+            if (m_mapModule.ContainsKey(name))
+            {
+                return m_mapModule[name];
+            }
 
+            return null;
+        }
+
+        //=============================================
+
+        //·¢ËÍÏûÏ¢
+        public void SendMessage(string target,string msg,params object[] args)
+        {
+            BusinessModule module = GetModule(target);
+
+            if (module != null)
+            {
+                module.HandleMessage(msg,args);
+            }
+            else
+            {
+                List<MessageObject> list = GetCacheMessageList(target);
+                MessageObject msgobj = new MessageObject();
+                list.Add(msgobj);
+
+                msgobj.target = target;
+                msgobj.msg = msg;
+                msgobj.args = args;
+            }
+
+        }
+
+        private List<MessageObject> GetCacheMessageList(string target)
+        {
+            List<MessageObject> list = null;
+            if (!m_mapCacheMessage.ContainsKey(target))
+            {
+                list = new List<MessageObject>();
+                m_mapCacheMessage.Add(target,list);
+            }
+            else
+            {
+                list = m_mapCacheMessage[target];
+            }
+
+            return list;
+        }
+        //======================================================
+
+        public ModuleEvent Event(string target, string type)
+        {
+            ModuleEvent evt = null;
+            BusinessModule module = GetModule(target);
+            if (module!=null)
+            {
+                evt = module.Event(type);
+            }
+            else
+            {
+                EventTable table = GetPreListEventTable(target);
+                evt = table.GetEvent(type);
+            }
+            return evt;
+        }
+        private EventTable GetPreListEventTable(string target)
+        {
+            EventTable table = null;
+
+            if (!m_mapPrelistEvent.ContainsKey(target))
+            {
+                table = new EventTable();
+                m_mapPrelistEvent.Add(target,table);
+            }
+            else
+            {
+                table = m_mapPrelistEvent[target];
+            }
+
+            return table;
         }
     }
 }
