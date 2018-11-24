@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.5f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -73,6 +75,9 @@
     <Reference Include="UnityEngine.VR">
       <HintPath>E:/MyProgame/Unity5.6.5/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets/Foundation/protobuf-net.dll/protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="YJWCL">
       <HintPath>Assets/Foundation/YJWCL/YJWCL.dll</HintPath>
     </Reference>
@@ -81,17 +86,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\SGF\MiniJSON.cs" />
+    <Compile Include="Assets\SGF\PBSerializer.cs" />
+    <Compile Include="Assets\SGF\SGFEncoding.cs" />
     <Compile Include="Assets\Snaker\AppMain.cs" />
     <Compile Include="Assets\Snaker\Service\Core\BusinessModule.cs" />
     <Compile Include="Assets\Snaker\Service\Core\EventTable.cs" />
     <Compile Include="Assets\Snaker\Service\Core\Exmple\Example.cs" />
+    <Compile Include="Assets\Snaker\Service\Core\Exmple\Example_Protobuf.cs" />
+    <Compile Include="Assets\Snaker\Service\Core\Exmple\UIExample.cs" />
+    <Compile Include="Assets\Snaker\Service\Core\Exmple\UIPage1.cs" />
+    <Compile Include="Assets\Snaker\Service\Core\Exmple\UIPage2.cs" />
+    <Compile Include="Assets\Snaker\Service\Core\Exmple\UIWidget1.cs" />
+    <Compile Include="Assets\Snaker\Service\Core\Exmple\UIWindow1.cs" />
     <Compile Include="Assets\Snaker\Service\Core\GlobeEvent.cs" />
     <Compile Include="Assets\Snaker\Service\Core\LuaModule.cs" />
     <Compile Include="Assets\Snaker\Service\Core\Module.cs" />
     <Compile Include="Assets\Snaker\Service\Core\ModuleManager.cs" />
     <Compile Include="Assets\Snaker\Service\Core\ServiceModule.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIManager.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIPage.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIPanel.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIRes.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIRoot.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIUtils.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIWidget.cs" />
+    <Compile Include="Assets\Snaker\Service\UIManager\UIWindow.cs" />
     <Compile Include="Assets\Snaker\Test\ReflectionTest.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Foundation\protobuf-net.dll\protobuf-net.xml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
